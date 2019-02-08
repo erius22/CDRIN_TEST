@@ -45,4 +45,10 @@ public class BoundBoxTool : Editor
             myObject.bounds = newBounds;
         }
     }
+
+    //pour l'affichage des propriete avec l'outil
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+    }
 }

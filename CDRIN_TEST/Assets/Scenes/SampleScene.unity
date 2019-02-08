@@ -272,11 +272,11 @@ MonoBehaviour:
     m_Center: {x: 0, y: 4.57, z: 0}
     m_Extent: {x: 5.9143753, y: 5.5928082, z: 9.964163}
   colorBoundsBox: {r: 0, g: 1, b: 0, a: 1}
-  prix: 0
-  nom: 
-  description: 
-  resistance: 0
-  autrePropriete: 
+  prix: 883
+  nom: maison
+  description: batiment
+  resistance: 100
+  autrePropriete: un autre truc !!!
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +450,7 @@ MonoBehaviour:
     m_Center: {x: 0, y: 2.71, z: 0}
     m_Extent: {x: 4.2455726, y: 8.65, z: 10.414875}
   colorBoundsBox: {r: 0, g: 1, b: 0, a: 1}
-  prix: 5600
+  prix: 5602.31
   nom: super mobile
   description: automobile
   resistance: 10
