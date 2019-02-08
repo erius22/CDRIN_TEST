@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class ObjectProperty : MonoBehaviour
 {
+    // besoin pour faire la box modifiable autour de l'objet
+    public Bounds bounds { get { return m_Bounds; } set { m_Bounds = value; } }
+    [SerializeField]
+    private Bounds m_Bounds = new Bounds(Vector3.zero, Vector3.one);
+    public Color colorBoundsBox = Color.green;
 
-    public float price;
-    public string objectName;
+
+
+    //differentes proprietes
+    public float prix;
+    public string nom;
     public string description;
     public float resistance;
+    public string autrePropriete; 
 
-    [HideInInspector]
-    public Vector3 rectOffset;
-    [HideInInspector]
-    public Vector3 rectSize;
 
 
     // Start is called before the first frame update
@@ -25,14 +30,7 @@ public class ObjectProperty : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void OnDrawGizmos()
-    {
-        // Draw a yellow sphere at the transform's position
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(this.transform.position + rectOffset, this.transform.localScale + rectSize);
-        Debug.Log("working ?");
-    }
 }
