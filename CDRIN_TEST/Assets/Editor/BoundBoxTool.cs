@@ -15,6 +15,8 @@ public class BoundBoxTool : Editor
 
     private BoxBoundsHandle boundsHandle = new BoxBoundsHandle();
 
+    private bool zoneModifiable;
+
 
     protected virtual void OnSceneGUI()
     {
@@ -22,6 +24,17 @@ public class BoundBoxTool : Editor
         //vas chercher l'objet
         ObjectProperty myObject = (ObjectProperty)target;
 
+
+        
+        //affiche ou non de la zone autour de l'objet
+        if (zoneModifiable == true)
+        {
+            boundsHandle.axes = PrimitiveBoundsHandle.Axes.All;
+        }
+        else
+        {
+            boundsHandle.axes = PrimitiveBoundsHandle.Axes.None;
+        }
 
         //modifie la box
         boundsHandle.center = myObject.gameObject.transform.position + myObject.bounds.center;
@@ -49,11 +62,21 @@ public class BoundBoxTool : Editor
     //pour l'affichage des propriete avec l'outil
     public override void OnInspectorGUI()
     {
+        //bouton pour activer/desactive l'affichage de la zone autour de l'objet
+        if(GUILayout.Button("Modifier zone"))
+        {
+            zoneModifiable = !zoneModifiable;
+        }
+
+
         DrawDefaultInspector();
 
         ObjectProperty myObject = (ObjectProperty)target;
 
 
         myObject.VariablePrive = EditorGUILayout.FloatField("Ma variable prive", myObject.VariablePrive);
+
+
+
     }
 }
