@@ -17,7 +17,13 @@ public class ObjectProperty : MonoBehaviour
     public string nom;
     public string description;
     public float resistance;
-    public string autrePropriete; 
+    public string autrePropriete;
+
+    [SerializeField]
+    private float proprietePriveSerialise;
+
+    public float VariablePrive { get { return variablePrive; } set { variablePrive = value; } }
+    private float variablePrive;
 
 
 
@@ -32,5 +38,7 @@ public class ObjectProperty : MonoBehaviour
     {
 
     }
+
+
 
 }

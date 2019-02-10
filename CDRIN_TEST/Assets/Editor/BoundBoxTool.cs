@@ -50,5 +50,10 @@ public class BoundBoxTool : Editor
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
+
+        ObjectProperty myObject = (ObjectProperty)target;
+
+
+        myObject.VariablePrive = EditorGUILayout.FloatField("Ma variable prive", myObject.VariablePrive);
     }
 }
