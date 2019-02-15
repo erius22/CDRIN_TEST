@@ -25,8 +25,9 @@ public class BoundBoxTool : Editor
         ObjectProperty myObject = (ObjectProperty)target;
 
 
-        
+
         //affiche ou non de la zone autour de l'objet
+        /*
         if (zoneModifiable == true)
         {
             boundsHandle.axes = PrimitiveBoundsHandle.Axes.All;
@@ -35,6 +36,7 @@ public class BoundBoxTool : Editor
         {
             boundsHandle.axes = PrimitiveBoundsHandle.Axes.None;
         }
+        */
 
         //modifie la box
         boundsHandle.center = myObject.gameObject.transform.position + myObject.bounds.center;
@@ -62,11 +64,15 @@ public class BoundBoxTool : Editor
     //pour l'affichage des propriete avec l'outil
     public override void OnInspectorGUI()
     {
+
         //bouton pour activer/desactive l'affichage de la zone autour de l'objet
-        if(GUILayout.Button("Modifier zone"))
+        /*
+        if (GUILayout.Button("Modifier zone"))
         {
             zoneModifiable = !zoneModifiable;
-        }
+
+            boundsHandle.DrawHandle();
+        }*/
 
 
         DrawDefaultInspector();
@@ -78,5 +84,18 @@ public class BoundBoxTool : Editor
 
 
 
+    }
+
+    //bouton pour ajouter le script "ObjectProperty" automatiquement a tout les objets avec le tag "environnement"
+    [MenuItem("Tool/Add ObjectProperty")]
+    private static void ObjectProertyOption()
+    {
+        foreach (GameObject environnementObject in GameObject.FindGameObjectsWithTag("Environnement"))
+        {
+            if (environnementObject.GetComponent<ObjectProperty>() == null)
+            {
+                environnementObject.AddComponent<ObjectProperty>();
+            }
+        }
     }
 }
